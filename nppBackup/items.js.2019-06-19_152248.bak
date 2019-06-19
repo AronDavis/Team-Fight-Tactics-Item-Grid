@@ -4,7 +4,7 @@ if (!jQuery)
 }
 
 $(function() {
-	var imageBasePath = "https://raw.githubusercontent.com/AronDavis/Team-Fight-Tactics-Item-Grid/master/itemImages/";
+	var imageBasePath = "www.yeet.com";
 	var baseItems = [];
 	var comboItems = [];
 
@@ -280,7 +280,7 @@ $(function() {
 		var $imgContainer = $("<div/>").addClass("tooltip");
 		
 		var $img = $("<img/>")
-		$img.attr("src", `${imageBasePath}/${encodeURI(item.title)}.png`);
+		$img.attr("src", `${imageBasePath}\\${item.title}.png`);
 		
 		var $tooltipTitle = $("<div/>").addClass("tooltipTitle").text(item.title);
 		var $tooltipDetails = $("<div/>").addClass("tooltipDetails").text(item.details);
