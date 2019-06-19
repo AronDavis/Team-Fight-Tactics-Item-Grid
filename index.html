@@ -19,7 +19,19 @@
 				-ms-transform: translate(-50%, -50%); /* IE 9 */
 				-webkit-transform: translate(-50%, -50%); /* Chrome, Safari, Opera */
 				
-				border-spacing: 10px;
+				border-collapse: collapse;
+			}
+			
+			thead > tr {
+			  border-bottom: 1px solid #CCC;
+			}
+			
+			table th:first-child, table td:first-child {
+				border-right: 1px solid #CCC;
+			}
+			
+			th, td {
+				padding: 7px;
 			}
 			
 			table, th, td {
