@@ -207,7 +207,7 @@ $(function() {
 		});
 		
 	comboItems.push({
-		title: "Spear of Shojin",
+		title: "Spear Of Shojin",
 		details: "After casting an ability, wearer gains 20% of its max mana per attack.",
 		components: ["B.F. Sword", "Tear of the Goddess"]
 		});
@@ -225,7 +225,7 @@ $(function() {
 		});
 		
 	comboItems.push({
-		title: "Sword of the Divine",
+		title: "Sword Of The Divine",
 		details: "Each second, the wearer has a 5% chance to gain 100% Critical Strike.",
 		components: ["B.F. Sword", "Recurve Bow"]
 		});
