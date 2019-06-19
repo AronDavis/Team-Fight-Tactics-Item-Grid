@@ -373,7 +373,7 @@ $(function() {
 	}
 
 	// add table to dom
-	$table.appendTo('body');
+	$table.appendTo($("#content"));
 
 });
 
