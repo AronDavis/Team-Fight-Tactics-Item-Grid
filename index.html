@@ -22,10 +22,6 @@
 				border-collapse: collapse;
 			}
 			
-			thead > tr {
-			  border-bottom: 1px solid #CCC;
-			}
-			
 			table th:first-child, table td:first-child {
 				border-right: 1px solid #CCC;
 			}
@@ -42,6 +38,18 @@
 			img {
 				height: 50px;
 				width: 50px;
+			}
+			
+			.componentImage {
+				height: 35px;
+				width: 35px;
+				margin-left: 5px;
+				margin-right: 5px;
+				margin-top: 5px;
+			}
+			
+			.tooltip:hover {
+				outline: 1px solid #CCC;
 			}
 			
 			/* Tooltip container */
@@ -68,11 +76,6 @@
 			  z-index: 1;
 			  bottom: 125%;
 			  left: 50%;
-			  
-
-			  /* Fade in tooltip */
-			  opacity: 0;
-			  transition: opacity 0.3s;
 			}
 
 			/* Tooltip arrow */

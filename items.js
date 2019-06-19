@@ -290,6 +290,23 @@ $(function() {
 		$tooltipText.append($tooltipTitle);
 		$tooltipText.append($tooltipDetails);
 		
+		if(item.components != undefined)
+		{
+			var $tooltipComponents = $("<div/>").addClass("tooltipComponents");
+			
+			var componentItems = baseItems.filter(baseItem => item.components.includes(baseItem.title));
+			
+			for(var i = 0; i < componentItems.length; i++)
+			{
+				var $componentImage = $("<img/>").addClass("componentImage");
+				$componentImage.attr("src", `${imageBasePath}/${encodeURI(componentItems[i].title)}.png`);
+				
+				$tooltipComponents.append($componentImage);
+			}
+			
+			$tooltipText.append($tooltipComponents);
+		}
+		
 		$imgContainer.append($img);
 		$imgContainer.append($tooltipText);
 		
