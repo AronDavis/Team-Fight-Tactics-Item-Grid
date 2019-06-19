@@ -7,10 +7,6 @@
 		</script>
 		<script src="items.js"></script>
 		<style>
-			body {
-				background: black;
-			}
-			
 			table {
 				position: absolute;
 				top: 50%;
