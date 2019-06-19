@@ -296,10 +296,14 @@ $(function() {
 			
 			var componentItems = baseItems.filter(baseItem => item.components.includes(baseItem.title));
 			
-			for(var i = 0; i < componentItems.length; i++)
+			var componentItemIndex = 0;
+			for(var i = 0; i < 2; i++, componentItemIndex++)
 			{
+				if(componentItems.length == 1)
+					componentItemIndex = 0;
+				
 				var $componentImage = $("<img/>").addClass("componentImage");
-				$componentImage.attr("src", `${imageBasePath}/${encodeURI(componentItems[i].title)}.png`);
+				$componentImage.attr("src", `${imageBasePath}/${encodeURI(componentItems[componentItemIndex].title)}.png`);
 				
 				$tooltipComponents.append($componentImage);
 			}
