@@ -273,7 +273,7 @@ $(function() {
 		});
 		
 		
-	function createIcon(item, container){
+	function createIcon(item, container, gridRow, gridColumn){
 		if(item == undefined)
 			return;
 		
@@ -294,8 +294,12 @@ $(function() {
 		{
 			var $tooltipComponents = $("<div/>").addClass("tooltipComponents");
 			
-			var componentItems = baseItems.filter(baseItem => item.components.includes(baseItem.title));
+			var componentItems = baseItems
+				.filter(baseItem => item.components.includes(baseItem.title))
+				.sort((a, b) => baseItems[gridRow] == a ? -1 : 1);
 			
+			
+			var componentStatsArray = []
 			var componentItemIndex = 0;
 			for(var i = 0; i < 2; i++, componentItemIndex++)
 			{
@@ -305,8 +309,15 @@ $(function() {
 				var $componentImage = $("<img/>").addClass("componentImage");
 				$componentImage.attr("src", `${imageBasePath}/${encodeURI(componentItems[componentItemIndex].title)}.png`);
 				
+				var $componentStats = $("<div/>").text(componentItems[componentItemIndex].details);
+				
+				componentStatsArray.push($componentStats);
+				
 				$tooltipComponents.append($componentImage);
 			}
+			
+			for(var i = 0; i < componentStatsArray.length; i++)
+				$tooltipComponents.append(componentStatsArray[i]);
 			
 			$tooltipText.append($tooltipComponents);
 		}
@@ -335,7 +346,7 @@ $(function() {
 	for(var i = 0; i < baseItems.length; i++)
 	{
 		var $th = $("<th />");
-		createIcon(baseItems[i], $th)
+		createIcon(baseItems[i], $th, 0, i)
 		$headerRow.append($th);
 	}
 
@@ -347,7 +358,7 @@ $(function() {
 		var $tr = $tbody.append('<tr />').children('tr:last')
 		
 		var $th = $("<th />");
-		createIcon(baseItems[i], $th)
+		createIcon(baseItems[i], $th, i, 0)
 		$tr.append($th);
 		
 		for(var j = 0; j < baseItems.length; j++)
@@ -366,7 +377,7 @@ $(function() {
 				comboItem.components.includes(baseItems[j].title)
 			});
 			
-			createIcon(item, $td)
+			createIcon(item, $td, i, j)
 			
 			$tr.append($td);
 		}
