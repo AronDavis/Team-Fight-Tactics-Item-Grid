@@ -63,8 +63,8 @@ $(function() {
 		});
 		
 	comboItems.push({
-		title: "Brawler's Gloves",
-		details: "Wearer is also a Brawler.",
+		title: "Runaan's Hurricane",
+		details: "Attacks 2 additional enemies. These additional attacks deal 50% damage.",
 		components: ["Spatula", "Negatron Cloak"]
 		});
 		
