@@ -112,7 +112,7 @@ $(function() {
 		
 	comboItems.push({
 		title: "Guinsoo's Rageblade",
-		details: "Attacks grant 5% Attack Speed. Stacks infinitely.",
+		details: "Attacks grant 4% Attack Speed. Stacks infinitely.",
 		components: ["Recurve Bow", "Needlessly Large Rod"]
 		});
 		
@@ -160,7 +160,7 @@ $(function() {
 		
 	comboItems.push({
 		title: "Morellonomicon",
-		details: "Spells deal burn damage equal to 10% of the enemy's maximum health per second.",
+		details: "Spells deal burn damage equal to 5% of the enemy's maximum health per second.",
 		components: ["Needlessly Large Rod", "Giant's Belt"]
 		});
 		
@@ -268,7 +268,7 @@ $(function() {
 		
 	comboItems.push({
 		title: "Zeke's Herald",
-		details: "Adjacent allies gain +12.5% Attack Speed.",
+		details: "Adjacent allies gain +20% Attack Speed.",
 		components: ["B.F. Sword", "Giant's Belt"]
 		});
 		
