@@ -106,7 +106,7 @@ $(function() {
 		
 	comboItems.push({
 		title: "Guardian Angel",
-		details: "Wearer revives with 300 Health.",
+		details: "Wearer revives with 500 Health.",
 		components: ["B.F. Sword", "Chain Vest"]
 		});
 		
@@ -136,7 +136,7 @@ $(function() {
 		
 	comboItems.push({
 		title: "Ionic Spark",
-		details: "Whenever an enemy casts a spell, they take 100 damage.",
+		details: "Whenever an enemy casts a spell, they take 200 damage.",
 		components: ["Negatron Cloak", "Needlessly Large Rod"]
 		});
 		
@@ -154,7 +154,7 @@ $(function() {
 		
 	comboItems.push({
 		title: "Luden's Echo",
-		details: "Spells deal 100 splash damage on hit.",
+		details: "Spells deal 200 splash damage on hit.",
 		components: ["Needlessly Large Rod", "Tear of the Goddess"]
 		});
 		
@@ -208,7 +208,7 @@ $(function() {
 		
 	comboItems.push({
 		title: "Spear of Shojin",
-		details: "After casting an ability, wearer gains 20% of its max mana per attack.",
+		details: "After casting an ability, wearer gains 15% of its max mana per attack.",
 		components: ["B.F. Sword", "Tear of the Goddess"]
 		});
 		
@@ -232,7 +232,7 @@ $(function() {
 		
 	comboItems.push({
 		title: "Thornmail",
-		details: "Reflect 25% of damage taken from attacks.",
+		details: "Reflect 35% of damage taken from attacks.",
 		components: ["Chain Vest"]
 		});
 		
@@ -244,7 +244,7 @@ $(function() {
 		
 	comboItems.push({
 		title: "Warmog's Armor",
-		details: "Wearer regenerates 5% max Health per second.",
+		details: "Wearer regenerates 3% max Health per second.",
 		components: ["Giant's Belt"]
 		});
 		
@@ -268,7 +268,7 @@ $(function() {
 		
 	comboItems.push({
 		title: "Zeke's Herald",
-		details: "Adjacent allies gain +20% Attack Speed.",
+		details: "Adjacent allies gain +10% Attack Speed.",
 		components: ["B.F. Sword", "Giant's Belt"]
 		});
 		
