@@ -351,27 +351,29 @@ $(function() {
 	$headerRow.append($th);
 	
 	var topOrder = getUrlVars()["topOrder"];
+	var topOrderedBaseItems;
 	
-	if(topOrder != undefined)
+	if(topOrder == undefined)
 	{
-		topOrder = JSON.parse(topOrder);
-		
-		var orderedBaseItems = [];
+		topOrderedBaseItems = baseItems;
+	}
+	else
+	{
+		topOrderedBaseItems = [];
+		topOrder = JSON.parse(topOrder);		
 		
 		//add items to header
 		for(var i = 0; i < topOrder.length; i++)
 		{
-			orderedBaseItems.push(baseItems[topOrder[i]]);
+			topOrderedBaseItems.push(baseItems[topOrder[i]]);
 		}
-		
-		baseItems = orderedBaseItems;
 	}
 	
 	//add items to header
-	for(var i = 0; i < baseItems.length; i++)
+	for(var i = 0; i < topOrderedBaseItems.length; i++)
 	{
 		var $th = $("<th />");
-		createIcon(baseItems[i], $th, 0, i)
+		createIcon(topOrderedBaseItems[i], $th, 0, i)
 		$headerRow.append($th);
 	}
 
@@ -386,7 +388,7 @@ $(function() {
 		createIcon(baseItems[i], $th, i, 0)
 		$tr.append($th);
 		
-		for(var j = 0; j < baseItems.length; j++)
+		for(var j = 0; j < topOrderedBaseItems.length; j++)
 		{
 			var $td = $("<td />");
 			
@@ -394,12 +396,12 @@ $(function() {
 				//if base item x 2
 				if(i == j)
 				{
-					return comboItem.components.includes(baseItems[i].title) && comboItem.components.length == 1;
+					return comboItem.components.includes(topOrderedBaseItems[i].title) && comboItem.components.length == 1;
 				}
 
 				
-				return comboItem.components.includes(baseItems[i].title) &&
-				comboItem.components.includes(baseItems[j].title)
+				return comboItem.components.includes(topOrderedBaseItems[i].title) &&
+				comboItem.components.includes(topOrderedBaseItems[j].title)
 			});
 			
 			createIcon(item, $td, i, j)
