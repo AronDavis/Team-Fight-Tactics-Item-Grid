@@ -3,6 +3,14 @@ if (!jQuery)
     throw new Error("Requires jQuery"); 
 }
 
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = decodeURI(value);
+    });
+    return vars;
+}
+
 $(function() {
 	var imageBasePath = "https://raw.githubusercontent.com/AronDavis/Team-Fight-Tactics-Item-Grid/master/itemImages/";
 	var baseItems = [];
@@ -342,6 +350,23 @@ $(function() {
 	var $th = $("<th />");
 	$headerRow.append($th);
 	
+	var topOrder = getUrlVars()["topOrder"];
+	
+	if(topOrder != undefined)
+	{
+		topOrder = JSON.parse(topOrder);
+		
+		var orderedBaseItems = [];
+		
+		//add items to header
+		for(var i = 0; i < topOrder.length; i++)
+		{
+			orderedBaseItems.push(baseItems[topOrder[i]]);
+		}
+		
+		baseItems = orderedBaseItems;
+	}
+	
 	//add items to header
 	for(var i = 0; i < baseItems.length; i++)
 	{
@@ -386,6 +411,86 @@ $(function() {
 	// add table to dom
 	$table.appendTo($("#content"));
 
+	var $selectedHeader;
+	$("th").click(function() {
+		var $tooltip = $(this);
+		
+		$selectedHeader = $tooltip;
+		console.log($selectedHeader.text());
+	});
+	
+	
+	$(document).keyup(function(e){
+		if($selectedHeader == undefined)
+			return;
+		
+		var title = $selectedHeader.find(".tooltipTitle").text();
+		var itemIndex = $selectedHeader.index();
+		
+		if($selectedHeader.parent().parent().is("thead"))
+		{
+			switch(e.keyCode)
+			{
+				case 65: //a
+				case 37: //left
+				
+				if(itemIndex <= 1)
+					return;
+				
+				var prevItemIndex = itemIndex-1;
+				
+				var item = $(`thead > tr > th:nth-child(${itemIndex + 1})`);
+				var prevItem = $(`thead > tr > th:nth-child(${prevItemIndex + 1})`);
+				
+				prevItem.before(item);
+				
+				for(var i = 1; i <= baseItems.length; i++)
+				{
+					item = $(`tbody > tr:nth-child(${i}) > td:nth-child(${itemIndex + 1})`);
+					prevItem = $(`tbody > tr:nth-child(${i}) > td:nth-child(${prevItemIndex + 1})`);
+					
+					prevItem.before(item);
+				}
+				
+					break;
+				case 68: //d
+				case 39: //right
+					break;
+			}
+		}
+		else
+		{
+			switch(e.keyCode)
+			{
+				case 87: //w
+				case 38: //up
+					break;
+				case 83: //s
+				case 40: //down
+					break;
+			}	
+		}
+		
+		
+		console.log(e.keyCode);
+    });
+	
+	$(document).keyup(function(e) {
+		if (e.keyCode != 83)
+			return true;
+		
+		var headers = $("thead > tr > th .tooltipTitle").map(function(i,t){
+			var text = $(t).text();
+			return baseItems.findIndex(b => b.title == text);
+		}).toArray();
+
+		var topOrderParam = encodeURI(JSON.stringify(headers));
+		document.location = document.location.pathname + "?topOrder=" + topOrderParam;
+		
+		event.preventDefault();
+		return false;
+	});
+	
 });
 
 
