@@ -66,7 +66,7 @@ $(function() {
 	
 	comboItems.push({
 		title: "Bloodthirster",
-		details: "35% Lifesteal.",
+		details: "Attacks heal for 50% of damage.",
 		components: ["B.F. Sword", "Negatron Cloak"]
 		});
 		
