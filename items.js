@@ -44,7 +44,7 @@ $(function() {
 		
 	baseItems.push({
 		title: "Recurve Bow",
-		details: "+20% Attack Speed."
+		details: "+15% Attack Speed."
 		});
 		
 	baseItems.push({
