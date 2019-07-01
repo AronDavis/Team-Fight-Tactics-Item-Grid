@@ -120,7 +120,7 @@ $(function() {
 		
 	comboItems.push({
 		title: "Guinsoo's Rageblade",
-		details: "Attacks grant 4% Attack Speed. Stacks infinitely.",
+		details: "Attacks grant 3% Attack Speed. Stacks infinitely.",
 		components: ["Recurve Bow", "Needlessly Large Rod"]
 		});
 		
